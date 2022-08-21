@@ -1,29 +1,13 @@
 import { Box, Button } from "@mui/material";
-
 import { Formik, Form } from "formik";
-import * as yup from "yup";
+
+import { initialValues } from "../util/InitialValues";
+import { validationSchema } from "../util/FieldValidation";
+import { sexOptions } from "../util/SelectOptions";
 
 import FormikController from "./FormikController";
 
 function RegistrationForm() {
-
-    const sexOptions = [
-        { key: "Enter sex", value: "" },
-        { key: "Male", value: "male" },
-        { key: "Female", value: "female" },
-    ]
-
-    const initialValues = {
-        name: "",
-        sex: "",
-        birthDate: null
-    };
-
-    const validationSchema = yup.object({
-        name: yup.string().required("Required"),
-        sex: yup.string().required("Required"),
-        birthDate: yup.date().required("Required").nullable()
-    });
 
     const onSubmit = (values) => {
         console.log(values);
