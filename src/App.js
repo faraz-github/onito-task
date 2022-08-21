@@ -1,8 +1,11 @@
+import { Container } from "@mui/material";
+import RegistrationForm from "./components/RegistrationForm";
+
 function App() {
   return (
-    <div>
-      Hello World!
-    </div>
+    <Container>
+      <RegistrationForm />
+    </Container>
   );
 }
 
