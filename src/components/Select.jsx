@@ -4,9 +4,9 @@ import { Field, ErrorMessage } from "formik";
 function Select(props) {
     const { label, name, options, ...rest } = props;
     return (
-        <Stack direction={"row"} spacing={2}>
+        <Stack direction={"row"} spacing={2} alignItems={"center"}>
             <label htmlFor={name}>{label}</label>
-            <Stack>
+            <Stack style={{ width: "100%" }}>
                 <Field as="select" id={name} name={name} {...rest}>
                     {
                         options.map((option, index) => {

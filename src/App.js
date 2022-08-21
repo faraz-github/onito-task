@@ -1,3 +1,4 @@
+import "./app.css";
 import { Container } from "@mui/material";
 import RegistrationForm from "./components/RegistrationForm";
 

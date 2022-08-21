@@ -1,4 +1,4 @@
-import { Stack } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import { Field, ErrorMessage } from "formik";
 
 import DatePickerView from "react-datepicker";
@@ -9,20 +9,22 @@ function DatePicker(props) {
     return (
         <Stack direction={"row"} spacing={2}>
             <label htmlFor={name}>{label}</label>
-            <Stack>
+            <Stack style={{ width: "100%" }}>
                 <Field name={name}>
                     {
                         ({ form, field }) => {
                             const { setFieldValue } = form;
                             const { value } = field;
-                            return <DatePickerView
-                                id={name}
-                                placeholderText={placeholder}
-                                {...field}
-                                {...rest}
-                                selected={value}
-                                onChange={(data) => setFieldValue(name, data)}
-                            />
+                            return <Box className="customDatePickerWidth">
+                                <DatePickerView
+                                    id={name}
+                                    placeholderText={placeholder}
+                                    {...field}
+                                    {...rest}
+                                    selected={value}
+                                    onChange={(data) => setFieldValue(name, data)}
+                                />
+                            </Box>
                         }
                     }
                 </Field>
