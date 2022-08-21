@@ -7,10 +7,14 @@ import { sexOptions, identityOptions, guardianOptions, stateOptions, cityOptions
 
 import FormikController from "./FormikController";
 
-function RegistrationForm() {
+function RegistrationForm(props) {
 
-    const onSubmit = (values) => {
-        console.log(values);
+    const { setUsers } = props;
+
+    const onSubmit = (values, onSubmitProps) => {
+        setUsers((prevState) => [...prevState, values]);
+        alert("Registration Successful!");
+        onSubmitProps.resetForm();
     }
 
     return (
@@ -208,8 +212,8 @@ function RegistrationForm() {
                             </Box>
                             <Box sx={{ my: 1, display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
                                 <Stack direction={"row"} spacing={1}>
-                                    <Button type="reset" variant="contained" disableElevation>Cancel</Button>
-                                    <Button type="submit" variant="contained" disableElevation>Submit</Button>
+                                    <Button size="large" color="error" type="reset" variant="outlined" disableElevation>Cancel</Button>
+                                    <Button size="large" color="success" type="submit" variant="contained" disableElevation>Submit</Button>
                                 </Stack>
                             </Box>
 
